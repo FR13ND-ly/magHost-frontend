@@ -1,0 +1,18 @@
+<td>
+  <span class="index mr-2">{{ index + 1 }}.</span>
+</td>
+<td>
+  <span class="name mr-5">{{ file.name }}</span>
+</td>
+<td>{{ file.type }}</td>
+<td>
+  <span class="size mr-10">{{ file.file.size }} bytes</span>
+</td>
+<td>
+  <button
+    class="bg-red-700 text-white px-3 py-1 rounded-md"
+    (click)="onDeleteItem()"
+  >
+    delete
+  </button>
+</td>

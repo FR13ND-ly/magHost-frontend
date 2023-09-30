@@ -1,0 +1,20 @@
+<td>
+  <span class="index mr-2">{{ index + 1 }}.</span>
+</td>
+<td>
+  <span
+    (click)="onEnterFolder()"
+    class="name mr-5 cursor-pointer hover:underline"
+    >{{ folder.name }}</span
+  >
+</td>
+<td>{{ folder.type }}</td>
+<td></td>
+<td>
+  <button
+    class="bg-red-700 text-white px-3 py-1 rounded-md"
+    (click)="onDeleteItem()"
+  >
+    delete
+  </button>
+</td>

@@ -1,0 +1,14 @@
+<nav
+  class="inline-flex my-2 border border-black-500 px-2 py-1 rounded-md space-x-1"
+>
+  <section class="hover:text-blue-500 cursor-pointer" (click)="onNavigate(0)">
+    Home >
+  </section>
+  <section
+    class="hover:text-blue-500 cursor-pointer"
+    *ngFor="let item of navigation; let i = index"
+    (click)="onNavigate(i + 1)"
+  >
+    {{ item.name }} >
+  </section>
+</nav>

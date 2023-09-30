@@ -1,0 +1,30 @@
+<section class="flex space-x-2">
+  <button
+    type="button"
+    (click)="uploadFolder.emit()"
+    class="bg-blue-500 text-white px-3 py-1 rounded-md"
+  >
+    Upload Folder
+  </button>
+  <button
+    type="button"
+    class="bg-blue-500 text-white px-3 py-1 rounded-md"
+    (click)="multiple.emit()"
+  >
+    Add Files
+  </button>
+  <button
+    type="button"
+    class="bg-blue-500 text-white px-3 py-1 rounded-md"
+    (click)="single.emit()"
+  >
+    Add File
+  </button>
+  <button
+    class="bg-blue-700 text-white px-3 py-1 rounded-md"
+    type="button"
+    (click)="createFolder.emit()"
+  >
+    Create Folder
+  </button>
+</section>

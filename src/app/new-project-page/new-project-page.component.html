@@ -1,0 +1,30 @@
+<app-result
+  [result]="result"
+  (close)="onCloseResult()"
+  *ngIf="result$ | async as result"
+/>
+<form #form="ngForm" class="mt-4" (submit)="onSubmit(form.form)">
+  <h1 class="text-4xl mb-4">Add app</h1>
+  <div class="flex space-x-3">
+    <input
+      name="name"
+      class="bg-gray-100 border rounded-md px-3 py-2"
+      ngModel
+      placeholder="Name"
+    />
+    <input
+      name="index"
+      class="bg-gray-100 border rounded-md px-3 py-2"
+      ngModel
+      value="index.html"
+      placeholder="Entry Point"
+    />
+    <button
+      class="right bg-teal-500 text-white px-4 py-2 rounded-md"
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+  <app-files [files]="files"></app-files>
+</form>

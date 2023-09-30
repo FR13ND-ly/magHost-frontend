@@ -1,0 +1,18 @@
+<ng-container *ngIf="projects$ | async as projects">
+  <article class="bg-blue-50 p-4 mb-4" *ngFor="let project of projects">
+    <button
+      (click)="onDeleteProject(project)"
+      class="p-2 rounded-md font-bold float-right bg-red-400 text-red-900 hover:bg-red-600 hover:text-red-50"
+    >
+      delete
+    </button>
+    <h1 class="text-2xl mb-1 text-blue-900">{{ project.name }}</h1>
+    <p><b>Entry Point:</b> {{ project.index }}</p>
+    <a
+      class="text-blue-500 hover:underline"
+      href="http://{{ project.name }}.localhost:5000/"
+      target="_blank"
+      >Link to Application</a
+    >
+  </article>
+</ng-container>

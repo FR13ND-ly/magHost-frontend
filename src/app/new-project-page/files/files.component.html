@@ -1,0 +1,51 @@
+<div class="mt-5 flex flex-col">
+  <h2 class="text-3xl mb-2">Files</h2>
+  <app-actions
+    (single)="single.click()"
+    (multiple)="multiple.click()"
+    (uploadFolder)="directory.click()"
+    (createFolder)="onCreateFolder()"
+  />
+  <div class="files" *ngIf="view$ | async as view">
+    <app-navigation [navigation]="navigation" (navigate)="onNavigate($event)" />
+    <table class="w-full" *ngIf="view$ | async as view">
+      <ng-container *ngFor="let item of view; let i = index">
+        <tr
+          app-file
+          [file]="item"
+          [index]="i"
+          (delete)="onDeleteItem(i)"
+          *ngIf="item.type == 'file'"
+        ></tr>
+        <tr
+          app-folder
+          [folder]="item"
+          class="bg-gray-100"
+          [index]="i"
+          (navigate)="onEnterFolder(item, i)"
+          (delete)="onDeleteItem(i)"
+          *ngIf="item.type == 'folder'"
+        ></tr>
+      </ng-container>
+      <p *ngIf="!view.length">No Files</p>
+    </table>
+  </div>
+</div>
+
+<input
+  class="hidden"
+  type="file"
+  multiple
+  #multiple
+  (change)="onUpload(multiple)"
+/>
+<input
+  class="hidden"
+  type="file"
+  (change)="onUploadFolder(directory)"
+  (click)="onUploadFolder(directory)"
+  webkitdirectory
+  mozdirectory
+  #directory
+/>
+<input class="hidden" type="file" #single (change)="onUpload(single)" />
